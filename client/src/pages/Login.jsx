@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Lock, Mail, Loader2, Building2, CheckCircle2, Command } from 'lucide-react';
-import axios from 'axios';
+// IMPORT CRITICAL: Switched from axios to your custom api instance
+import api from '../api'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,8 @@ const Login = () => {
     setLoading(true);
     try {
       localStorage.removeItem('user');
-      const { data } = await axios.post('http://localhost:5000/api/users/login', {
+      // UPDATED: Now uses the dynamic baseURL from api.js
+      const { data } = await api.post('/login', {
         email,
         password
       });
@@ -33,11 +35,9 @@ const Login = () => {
         
         {/* --- LEFT SIDE: Marketing / Info --- */}
         <div className="bg-linear-to-br from-indigo-600 to-violet-700 p-12 flex flex-col justify-between text-white relative overflow-hidden">
-          {/* Decorative Circles */}
           <div className="absolute top-[-20%] left-[-20%] w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-[-20%] right-[-20%] w-64 h-64 bg-indigo-500/30 rounded-full blur-3xl"></div>
 
-          {/* Brand Logo */}
           <div className="flex items-center gap-3 relative z-10">
             <div className="bg-white/20 p-2.5 rounded-xl backdrop-blur-sm">
               <Command className="w-6 h-6 text-white" />
@@ -45,7 +45,6 @@ const Login = () => {
             <span className="text-xl font-bold tracking-tight">StaffSync</span>
           </div>
 
-          {/* Marketing Content */}
           <div className="relative z-10 space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Manage your team with confidence.
@@ -70,9 +69,8 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Footer Text */}
           <div className="relative z-10 text-xs text-indigo-200 mt-8">
-            © 2024 StaffSync Inc. All rights reserved.
+            © 2026 StaffSync Inc. All rights reserved.
           </div>
         </div>
 
@@ -136,7 +134,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

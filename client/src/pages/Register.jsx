@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// IMPORT CRITICAL: Switched from axios to your custom api instance
+import api from '../api'; 
 import { Building2, User, Mail, Lock, Loader2, Command, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const Register = () => {
@@ -12,7 +13,8 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/users/register', formData);
+      // UPDATED: Uses the centralized api instance for dynamic routing
+      await api.post('/register', formData);
       alert('Organization Registered Successfully! Please Login.');
       navigate('/login');
     } catch (error) {
