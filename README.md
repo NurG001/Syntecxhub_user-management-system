@@ -1,38 +1,61 @@
-# StaffSync | Multi-Tenant User Management System
+<!-- HERO IMAGE -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./header.png" alt="StaffSync Dashboard" width="100%" />
+</p>
 
-**StaffSync** is a professional-grade User Management System built using the **MERN Stack**. Developed to fulfill the requirements of "Project - 1," it features a robust RESTful API, secure JWT-based authentication, and a fully responsive dashboard designed for organization-level team management.
+<h1 align="center">StaffSync | Multi-User Management System</h1>
+
+<p align="center">
+  A professional-grade MERN Stack user management system with secure multi-user architecture.
+</p>
+
+---
+
+## 📌 Overview
+
+**StaffSync** is a professional-grade **User Management System** built using the **MERN Stack**.  
+Developed to fulfill the requirements of **Project – 1**, it features a robust RESTful API, secure **JWT-based authentication**, and a fully responsive dashboard designed for **organization-level team management**.
 
 ---
 
 ## 📸 Visual Showcase
 
 | Feature | Desktop View | Mobile View |
-| --- | --- | --- |
-| **Main Dashboard** |  |  |
-| **Auth System** |  |  |
-| **User Management** |  |  |
-| **Feedback System** |  |  |
+|------|-------------|------------|
+| **Main Dashboard** | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./dashboard.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./mbl_dashboard.png" width="100%"/> |
+| **Authentication System** | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./login.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./reg.png" width="100%"/> |
+| **User Management** | <img src="https://github.com/NurG001/mine/blob/main/project%20img/user-management./user%20manage.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./user_manage_mbl.png" width="100%"/> |
 
 ---
 
 ## 🚀 Key Features
 
-* **RESTful API & CRUD**: Fully implemented Create, Read, Update, and Delete operations for user management.
-* **Multi-Tenant Architecture**: Strict data isolation ensuring administrators only access and manage users within their specific organization.
-* **Secure Authentication**: Modern JWT (JSON Web Tokens) implementation for secure session management, exceeding original requirements.
-* **Professional Admin Profile**: Editable admin settings allowing updates to names, emails, and secure password hashing using `bcryptjs`.
-* **Responsive UI/UX**: A modern dashboard featuring a sliding mobile sidebar, search functionality, and real-time UI updates.
-* **Dynamic Notifications**: Integrated `react-hot-toast` for non-blocking visual feedback on all system actions.
-* **Custom Logout Flow**: A stylized, user-friendly confirmation modal to prevent accidental session termination.
+- **RESTful API & CRUD** – Full Create, Read, Update, and Delete operations
+- **Multi-Tenant Architecture** – Strict data isolation per organization
+- **JWT Authentication** – Secure token-based session handling
+- **Admin Profile Management** – Update name, email & password (bcryptjs)
+- **Responsive UI/UX** – Mobile sidebar, search & smooth transitions
+- **Live Notifications** – `react-hot-toast` for real-time feedback
+- **Custom Logout Flow** – Confirmation modal to prevent accidental exits
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend**: React.js, Tailwind CSS, Lucide React (Icons), React Hot Toast.
-* **Backend**: Node.js, Express.js.
-* **Database**: MongoDB & Mongoose (Schema Definition).
-* **Security**: JWT for Auth, BcryptJS for password encryption.
+### Frontend
+- React.js  
+- Tailwind CSS  
+- Lucide React  
+- React Hot Toast  
+
+### Backend
+- Node.js  
+- Express.js  
+
+### Database & Security
+- MongoDB + Mongoose  
+- JWT Authentication  
+- BcryptJS Password Hashing  
 
 ---
 
@@ -41,16 +64,15 @@
 ```text
 ├── client/                # React Frontend
 │   ├── src/
-│   │   ├── components/    # Navbar, Sidebar, UserCards, Login, Register
-│   │   ├── api.js         # Centralized Axios configuration
-│   │   └── App.jsx        # Main View logic & State management
+│   │   ├── components/    # Navbar, Sidebar, UserCards, Auth
+│   │   ├── api.js         # Axios configuration
+│   │   └── App.jsx        # State & routing logic
 ├── server/                # Node.js Backend
-│   ├── controllers/       # Multi-tenant business logic
-│   ├── models/            # Mongoose Schemas (User & Organization)
-│   └── routes/            # Protected API Endpoints
-└── .env                   # JWT Secrets & MongoDB URI
-
-```
+│   ├── controllers/       # Business logic (multi-tenant)
+│   ├── models/            # User & Organization schemas
+│   └── routes/            # Protected API routes
+└── .env                   # Environment variables
+````
 
 ---
 
@@ -58,46 +80,78 @@
 
 ### Authentication
 
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| `POST` | `/api/users/register` | Register a new organization and admin |
-| `POST` | `/api/users/login` | Authenticate and retrieve JWT token |
+| Method | Endpoint              | Description                       |
+| ------ | --------------------- | --------------------------------- |
+| `POST` | `/api/users/register` | Register new organization & admin |
+| `POST` | `/api/users/login`    | Authenticate admin and return JWT |
 
 ### User Management (Protected)
 
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| `GET` | `/api/users/` | Get all users within the specific organization |
-| `POST` | `/api/users/` | Add a new team member to the organization |
-| `PUT` | `/api/users/:id` | Update specific user details |
-| `DELETE` | `/api/users/:id` | Remove user from the organization |
-| `PUT` | `/api/users/profile` | Update Admin profile and security settings |
+| Method   | Endpoint             | Description                   |
+| -------- | -------------------- | ----------------------------- |
+| `GET`    | `/api/users/`        | Get all users in organization |
+| `POST`   | `/api/users/`        | Add new team member           |
+| `PUT`    | `/api/users/:id`     | Update user details           |
+| `DELETE` | `/api/users/:id`     | Remove user                   |
+| `PUT`    | `/api/users/profile` | Update admin profile          |
 
 ---
 
 ## ⚙️ Installation & Setup
 
-1. **Clone the repository**:
+### 1️⃣ Clone Repository
+
 ```bash
 git clone https://github.com/NurG001/Syntecxhub_user-management-system
-
 ```
 
+### 2️⃣ Backend Setup
 
-2. **Setup Backend**:
-* Navigate to `server`, run `npm install`.
-* Add your `MONGO_URI` and `JWT_SECRET` to the `.env` file.
-* Start server: `npm start`.
+```bash
+cd server
+npm install
+```
 
+Create `.env`:
 
-3. **Setup Frontend**:
-* Navigate to `client`, run `npm install`.
-* Configure `VITE_API_URL` in the `.env` file.
-* Start frontend: `npm run dev`.
+```env
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret_key
+```
 
+Start server:
 
+```bash
+npm start
+```
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd client
+npm install
+```
+
+Create `.env`:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+Run frontend:
+
+```bash
+npm run dev
+```
 
 ---
 
-**Developed by Ismail Mahmud Nur**
+## 👨‍💻 Author
+
+**Ismail Mahmud Nur**
 *Software Engineer | East West University Graduate*
+
+📧 **Contact:** GitHub / LinkedIn via profile
+⭐ If you like this project, consider giving it a star!
+
+```
