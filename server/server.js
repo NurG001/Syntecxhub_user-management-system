@@ -14,8 +14,8 @@ const app = express();
 // Restrict access to your specific frontend URL to prevent unauthorized API calls
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://staffsync-app.vercel.app' // Replace with your actual Vercel/Netlify URL
-    : 'http://localhost:5173',               // Local Vite development URL
+    ? 'https://staffsync-app.vercel.app' // REPLACE this with your actual Vercel URL
+    : 'http://localhost:5173',               
   optionsSuccessStatus: 200
 };
 
@@ -23,15 +23,21 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// --- NEW: HEALTH CHECK ROUTE ---
+// Required for Render to verify the service is running successfully
+app.get('/', (req, res) => {
+  res.status(200).send("StaffSync API is running successfully.");
+});
+
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 
 // --- AUTOMATIC SEED SCRIPT ---
-// Only runs if no admin exists to avoid accidental password resets in production
 const seedAdmin = async () => {
+  // In production, skip seeding if any Admin already exists to protect existing data
   if (process.env.NODE_ENV === 'production') {
     const adminCount = await User.countDocuments({ role: 'Admin' });
-    if (adminCount > 0) return; // Skip seeding if an admin already exists
+    if (adminCount > 0) return; 
   }
 
   try {
@@ -66,7 +72,6 @@ const seedAdmin = async () => {
 };
 
 // --- MANUAL RESET ROUTE (DISABLED IN PRODUCTION) ---
-// This route is removed in production for security
 if (process.env.NODE_ENV !== 'production') {
   app.get('/reset-admin', async (req, res) => {
     try {
