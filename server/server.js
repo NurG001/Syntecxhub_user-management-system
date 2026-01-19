@@ -15,7 +15,7 @@ const app = express();
 // Standard security and parsing middleware
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://staffsyncuser-management-system.vercel.app/' // Update this once you have your final Vercel URL
+    ? 'https://staffsyncuser-management-system.vercel.app' // Update this once you have your final Vercel URL
     : 'http://localhost:5173',               
   optionsSuccessStatus: 200
 };
