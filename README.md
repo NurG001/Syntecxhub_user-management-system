@@ -24,7 +24,7 @@ Developed to fulfill the requirements of **Project – 1**, it features a robust
 |------|-------------|------------|
 | **Main Dashboard** | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./dashboard.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./mbl_dashboard.png" width="100%"/> |
 | **Authentication System** | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./login.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./reg.png" width="100%"/> |
-| **User Management** | <img src="https://github.com/NurG001/mine/blob/main/project%20img/user-management./user%20manage.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./user_manage_mbl.png" width="100%"/> |
+| **User Management** | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./user%20manage.png" width="100%"/> | <img src="https://raw.githubusercontent.com/NurG001/mine/refs/heads/main/project%20img/user-management./user_manage_mbl.png" width="100%"/> |
 
 ---
 
